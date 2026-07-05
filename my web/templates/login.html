@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+.box {
+    width:320px;
+    padding:25px;
+    background:#111;
+    border-radius:12px;
+    box-shadow:0 0 20px #00eaff;
+    text-align:center;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow:0 0 10px #00eaff; }
+    to { box-shadow:0 0 30px #00eaff; }
+}
+
+input {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #333;
+    color:white;
+}
+
+button {
+    width:100%;
+    padding:10px;
+    background:#00eaff;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+h2 {
+    color:#00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>WALTON LOGIN</h2>
+
+    <form method="POST" action="/login">
+        <input name="username" placeholder="Username" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <button>LOGIN</button>
+    </form>
+</div>
+
+</body>
+</html>

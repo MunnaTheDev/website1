@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    display:flex;
+    background:#0b0b0b;
+    color:white;
+}
+
+.sidebar {
+    width:220px;
+    height:100vh;
+    background:#111;
+    padding:20px;
+    border-right:2px solid #00eaff;
+}
+
+.sidebar h2 {
+    color:#00eaff;
+}
+
+.sidebar a {
+    display:block;
+    color:white;
+    text-decoration:none;
+    margin:10px 0;
+}
+
+.sidebar a:hover {
+    color:#00eaff;
+}
+
+.main {
+    flex:1;
+    padding:20px;
+}
+
+.header {
+    font-size:28px;
+    color:#00eaff;
+}
+
+.card {
+    margin-top:20px;
+    padding:15px;
+    background:#111;
+    border-left:3px solid #00eaff;
+    border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>WALTON HUB</h2>
+
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        Welcome {{ user }}
+    </div>
+
+    <div class="card">
+        SYSTEM STATUS: ONLINE
+    </div>
+
+    <div class="card">
+        DATABASE: CONNECTED
+    </div>
+
+</div>
+
+</body>
+</html>

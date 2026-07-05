@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VITAL SYSTEM</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    font-family: monospace;
+    overflow: hidden;
+    color: #00eaff;
+}
+
+/* BOOT SCREEN */
+#boot {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+/* LOGIN BOX */
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 25px;
+    background: #0a0a0a;
+    border-radius: 10px;
+
+    /* ANIMATED GLOW */
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px #00eaff; }
+    to { box-shadow: 0 0 30px #00eaff; }
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: black;
+    border: 1px solid #222;
+    color: white;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #00eaff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* TERMINAL */
+#terminal {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+    color: #00ff88;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BOOT SCREEN -->
+<div id="boot">
+    <h2>System Booting...</h2>
+    <div id="text"></div>
+</div>
+
+<!-- LOGIN -->
+<div class="box">
+    <h2>Walton Hub</h2>
+
+    <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button>LOGIN</button>
+    </form>
+</div>
+
+<!-- TERMINAL -->
+<div id="terminal"></div>
+
+<script>
+
+// BOOT ANIMATION
+let messages = [
+    "Loading kernel...",
+    "Starting services...",
+    "Connecting database...",
+    "Loading UI engine...",
+    "System ready."
+];
+
+let i = 0;
+let text = document.getElementById("text");
+
+let boot = setInterval(() => {
+    text.innerHTML += messages[i] + "<br>";
+    i++;
+
+    if(i === messages.length){
+        clearInterval(boot);
+        setTimeout(() => {
+            document.getElementById("boot").style.display = "none";
+        }, 1000);
+    }
+}, 700);
+
+// TERMINAL ANIMATION
+let terminal = document.getElementById("terminal");
+
+let logs = [
+    "[OK] Firewall loaded",
+    "[OK] Database online",
+    "[OK] UI initialized"
+];
+
+let j = 0;
+
+setInterval(() => {
+    if(j < logs.length){
+        terminal.innerHTML += logs[j] + "<br>";
+        j++;
+    }
+}, 1200);
+
+</script>
+
+</body>
+</html>
